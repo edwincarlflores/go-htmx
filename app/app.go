@@ -9,6 +9,8 @@ import (
 func App() {
 	app := fiber.New()
 
+	app.Static("/assets", "./assets")
+
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusOK).SendString("OK")
 	})
