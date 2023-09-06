@@ -3,6 +3,7 @@ module github.com/edwincarlflores/go-htmx
 go 1.21
 
 require (
+	github.com/a-h/templ v0.2.316 // indirect
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/gofiber/fiber/v2 v2.49.1 // indirect
 	github.com/google/uuid v1.3.1 // indirect
