@@ -66,61 +66,44 @@ func HelloName(name string) templ.Component {
 			var_4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, err = templBuffer.WriteString("<p class=\"text-4xl font-bold text-emerald-300\">")
-		if err != nil {
-			return err
-		}
-		var_5 := `Hello `
-		_, err = templBuffer.WriteString(var_5)
-		if err != nil {
-			return err
-		}
-		var var_6 string = name
-		_, err = templBuffer.WriteString(templ.EscapeString(var_6))
-		if err != nil {
-			return err
-		}
-		var_7 := `!`
-		_, err = templBuffer.WriteString(var_7)
-		if err != nil {
-			return err
-		}
-		_, err = templBuffer.WriteString("</p>")
-		if err != nil {
-			return err
-		}
-		if !templIsBuffer {
-			_, err = io.Copy(w, templBuffer)
-		}
-		return err
-	})
-}
-
-func MissingName() templ.Component {
-	return templ.ComponentFunc(func(ctx context.Context, w io.Writer) (err error) {
-		templBuffer, templIsBuffer := w.(*bytes.Buffer)
-		if !templIsBuffer {
-			templBuffer = templ.GetBuffer()
-			defer templ.ReleaseBuffer(templBuffer)
-		}
-		ctx = templ.InitializeContext(ctx)
-		var_8 := templ.GetChildren(ctx)
-		if var_8 == nil {
-			var_8 = templ.NopComponent
-		}
-		ctx = templ.ClearChildren(ctx)
-		_, err = templBuffer.WriteString("<p class=\"text-red-300\">")
-		if err != nil {
-			return err
-		}
-		var_9 := `Please enter your name`
-		_, err = templBuffer.WriteString(var_9)
-		if err != nil {
-			return err
-		}
-		_, err = templBuffer.WriteString("</p>")
-		if err != nil {
-			return err
+		if name == "" {
+			_, err = templBuffer.WriteString("<p class=\"text-red-300\">")
+			if err != nil {
+				return err
+			}
+			var_5 := `Please enter your name`
+			_, err = templBuffer.WriteString(var_5)
+			if err != nil {
+				return err
+			}
+			_, err = templBuffer.WriteString("</p>")
+			if err != nil {
+				return err
+			}
+		} else {
+			_, err = templBuffer.WriteString("<p class=\"text-4xl font-bold text-emerald-300\">")
+			if err != nil {
+				return err
+			}
+			var_6 := `Hello `
+			_, err = templBuffer.WriteString(var_6)
+			if err != nil {
+				return err
+			}
+			var var_7 string = name
+			_, err = templBuffer.WriteString(templ.EscapeString(var_7))
+			if err != nil {
+				return err
+			}
+			var_8 := `!`
+			_, err = templBuffer.WriteString(var_8)
+			if err != nil {
+				return err
+			}
+			_, err = templBuffer.WriteString("</p>")
+			if err != nil {
+				return err
+			}
 		}
 		if !templIsBuffer {
 			_, err = io.Copy(w, templBuffer)
@@ -137,12 +120,12 @@ func HelloPage() templ.Component {
 			defer templ.ReleaseBuffer(templBuffer)
 		}
 		ctx = templ.InitializeContext(ctx)
-		var_10 := templ.GetChildren(ctx)
-		if var_10 == nil {
-			var_10 = templ.NopComponent
+		var_9 := templ.GetChildren(ctx)
+		if var_9 == nil {
+			var_9 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var_11 := templ.ComponentFunc(func(ctx context.Context, w io.Writer) (err error) {
+		var_10 := templ.ComponentFunc(func(ctx context.Context, w io.Writer) (err error) {
 			templBuffer, templIsBuffer := w.(*bytes.Buffer)
 			if !templIsBuffer {
 				templBuffer = templ.GetBuffer()
@@ -157,7 +140,7 @@ func HelloPage() templ.Component {
 			}
 			return err
 		})
-		err = common.Page("Hello").Render(templ.WithChildren(ctx, var_11), templBuffer)
+		err = common.Page("Hello").Render(templ.WithChildren(ctx, var_10), templBuffer)
 		if err != nil {
 			return err
 		}

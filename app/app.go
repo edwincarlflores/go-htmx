@@ -25,11 +25,6 @@ func App() {
 
 	app.Post("/hello", func(c *fiber.Ctx) error {
 		name := c.FormValue("name")
-
-		if name == "" {
-			return HTML(c, hellopage.MissingName())
-		}
-
 		return HTML(c, hellopage.HelloName(name))
 	})
 

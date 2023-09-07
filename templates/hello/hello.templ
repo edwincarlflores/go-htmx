@@ -19,11 +19,12 @@ templ Hello() {
 }
 
 templ HelloName(name string) {
-	<p class="text-4xl font-bold text-emerald-300">Hello { name }!</p>
-}
-
-templ MissingName() {
-	<p class="text-red-300">Please enter your name</p>
+	if name == "" {
+		<p class="text-red-300">Please enter your name</p>
+	} else {
+		<p class="text-4xl font-bold text-emerald-300">Hello { name }!</p>
+	}
+	
 }
 
 templ HelloPage(){
