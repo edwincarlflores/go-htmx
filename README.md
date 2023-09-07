@@ -21,11 +21,19 @@ Boilerplate setup for building full stack web applications with Go, HTMX, fiber,
 
 ### Running
 
-```
+```sh
 air
 ```
 
 Go to `localhost:8080`
+
+### Deploying
+
+This can be deployed as a normal Go application on any platform. There is a Dockerfile included for containerized deployments.
+A few suggestions where you can deploy this are in:
+
+- [railway.app](https://railway.app/)
+- [fly.io](https://fly.io/)
 
 ### Built with
 
