@@ -25,7 +25,7 @@ Boilerplate setup for building full stack web applications with Go, HTMX, fiber,
 air
 ```
 
-Go to `localhost:4000`
+Go to `localhost:8080`
 
 ### Built with
 
