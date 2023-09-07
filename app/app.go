@@ -10,7 +10,7 @@ import (
 )
 
 func HTML(c *fiber.Ctx, comp templ.Component) error {
-	c.Set("Content-Type", "text/html")
+	c.Set("Content-Type", fiber.MIMETextHTML)
 	return comp.Render(c.Context(), c.Response().BodyWriter())
 }
 
