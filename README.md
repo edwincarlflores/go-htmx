@@ -14,7 +14,7 @@ Boilerplate setup for building full stack web applications with Go, HTMX, fiber,
    ```sh
     go install github.com/a-h/templ/cmd/templ@latest
    ```
-2. Install air for hot reloading server on file change
+2. Install air for hot reloading server on file changes
    ```sh
     go install github.com/cosmtrek/air@latest
    ```
