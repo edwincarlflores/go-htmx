@@ -1,6 +1,6 @@
 # go-htmx
 
-Boilerplate setup for building full stack web applications with Go, HTMX, fiber, templ & tailwindcss
+Boilerplate setup for building full stack web applications with Go, HTMX, echo, templ & tailwindcss
 
 ### Pre-requisites
 
@@ -38,7 +38,7 @@ A few suggestions where you can deploy this are in:
 ### Built with
 
 - [Go](https://go.dev/)
-- [Fiber](https://docs.gofiber.io/)
+- [echo](https://echo.labstack.com/)
 - [HTMX](https://htmx.org/)
 - [TEMPL](https://templ.guide/)
 - [tailwindcss](https://tailwindcss.com/)

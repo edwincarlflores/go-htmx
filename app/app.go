@@ -1,32 +1,29 @@
 package app
 
 import (
-	"log"
-
 	"github.com/a-h/templ"
 	hellopage "github.com/edwincarlflores/go-htmx/templates/hello"
-
-	"github.com/gofiber/fiber/v2"
+	"github.com/labstack/echo/v4"
 )
 
-func HTML(c *fiber.Ctx, comp templ.Component) error {
-	c.Set("Content-Type", fiber.MIMETextHTML)
-	return comp.Render(c.Context(), c.Response().BodyWriter())
+func HTML(c echo.Context, comp templ.Component) error {
+	c.Response().Header().Set(echo.HeaderContentType, echo.MIMETextHTML)
+	return comp.Render(c.Request().Context(), c.Response().Writer)
 }
 
 func App() {
-	app := fiber.New()
+	e := echo.New()
 
-	app.Static("/assets", "./assets")
+	e.Static("/static", "static")
 
-	app.Get("/", func(c *fiber.Ctx) error {
+	e.GET("/", func(c echo.Context) error {
 		return HTML(c, hellopage.HelloPage())
 	})
 
-	app.Post("/hello", func(c *fiber.Ctx) error {
+	e.POST("hello", func(c echo.Context) error {
 		name := c.FormValue("name")
 		return HTML(c, hellopage.HelloName(name))
 	})
 
-	log.Fatal(app.Listen(":8080"))
+	e.Logger.Fatal(e.Start(":8080"))
 }
