@@ -40,7 +40,7 @@ func Page(pageName string) templ.Component {
 		if err != nil {
 			return err
 		}
-		_, err = templBuffer.WriteString("</script><script src=\"/assets/js/htmx.min.js\">")
+		_, err = templBuffer.WriteString("</script><script src=\"/static/js/htmx.min.js\">")
 		if err != nil {
 			return err
 		}
