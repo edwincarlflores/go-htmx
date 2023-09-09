@@ -10,7 +10,7 @@ Boilerplate setup for building full stack web applications with Go, HTMX, echo, 
 
 ### Installing Tools
 
-1. Install templ (requires Go 1.20 or greater)
+1. Install templ (requires Go 1.20 or higher)
    ```sh
     go install github.com/a-h/templ/cmd/templ@latest
    ```
